@@ -34,6 +34,7 @@ Enemy.prototype.update = function (dt) {
         player.x = 200;
         player.y = 375;
         score = 0;
+        document.getElementById('pontuacao').innerHTML = 'Pontuação: 0';
         speedIncrement = 50;
     }
 };
@@ -54,10 +55,12 @@ var Player = function (x, y) {
     this.sprite = 'images/char-boy.png';
 };
 
+/**
+ * @description As 3 primeiras condições da função verificam se o Player
+ * está se movendo para fora do Canvas, se sim, ele voltará a posição anterior.
+ * Na prática o Player poderá sair da área do Canvas.
+ */
 Player.prototype.update = function () {
-
-    // As condições abaixo não irão permitir que o Player 
-    // saia da área do canvas.
     if (this.x < 0) {
         this.x = 0;
     }
@@ -69,14 +72,14 @@ Player.prototype.update = function () {
     }
     /* Aqui será verificado se o Player alcançou a água
      ** Se sim, o usuário ganhará 1 ponto e os inimigos poderão ser
-     ** 15% mais rápido.
+     ** 15% mais rápido (em relação a velocidade máxima anterior).
      */
     if (this.y === -25) {
         this.x = 200;
         this.y = 375;
         score += 1;
         speedIncrement = speedIncrement + (speedIncrement * 0.15);
-        console.log(`Velocidade: ${speedIncrement} Pontos: ${score}`);
+        document.getElementById('pontuacao').innerHTML = `Pontuação: ${score}`;
     }
 };
 
@@ -84,7 +87,13 @@ Player.prototype.render = function () {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+/**
+ * @description Aqui será movido o Player conforme a tecla pressionada podendo ser:
+ * esquerda, direita, cima e baixo.
+ * @param  {string} command
+ */
 Player.prototype.handleInput = function (command) {
+    console.log(typeof(command));
     if (command == 'left') {
         this.x -= 100;
     } else if (command == 'right') {
@@ -103,10 +112,13 @@ var enemy;
 var allEnemies = [];
 var enemiesPosition = [58, 142, 225];
 var player = new Player(200, 375);
+ 
+let speedIncrement = 50;
+let score = 0;
 
-var speedIncrement = 50;
-var score = 0;
-
+// Será executado um loop onde enemy receberá uma nova instância de Enemy
+// com as informações de posições X e Y (do array enemiesPosition) e a
+// velocidade aleatória usando inicialmente 50 (em speedIncrement) no multiplicador da velocidade.
 enemiesPosition.forEach(function (y) {
     enemy = new Enemy(-105, y, 100 + Math.random() * speedIncrement);
     allEnemies.push(enemy);

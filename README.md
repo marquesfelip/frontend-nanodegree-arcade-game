@@ -1,6 +1,30 @@
-frontend-nanodegree-arcade-game
-===============================
+# Projeto Fliperama Clássico
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Tabela de Conteúdos
+* [O que é](#o-que-é-este-projeto)
+* [O Jogo](#o-jogo)
+  * [Como funciona](#como-funciona)
+  * [Jogadas e Pontuação](#jogadas-e-pontuação)
+  * [Tempo](#tempo)
+* [Dependências](#dependências)
+* [License](#license)
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## O que é este projeto
+
+Este é o projeto **Fliperama Clássico** do Nanodegree [Desenvolvedor Web Front-End](https://br.udacity.com/course/front-end-web-developer-nanodegree--nd001#) produzido pela Udacity.
+
+## O jogo
+### Como funciona
+O objetivo do jogo atravessar o caminho de pedra e chega na parte ilustrada como água para que você ganhe um ponto. Ao tentar atravessar você não pode deixar que qualquer inseto encoste no personagem controlado por você. Os comandos são simples: setas para cima, baixo, esquerda e direita para mover o personagem em um bloco.
+
+### Pontuação
+Para cada vez que você conseguir alcançar a água, você ganhará 1 ponto, mas os insetos (inimigos) poderão ficar 15% mais rápido em relação a velocidade máxima anterior. Ou seja, quanto mais pontos você conseguir, mais rápido os insetos poderão se deslocar.
+
+Bom jogo!
+
+## Desenvolvimento
+Parte do projeto é fornecido pela Udacity onde este veio de um fork. O mesmo já vem com as imagens, HTML e CSS. Do JavaScript já são fornecidos os códigos em _engine.js_ e _resources.js_ e um ponta pé inicial em _app.js_.
+
+## License
+
+This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
