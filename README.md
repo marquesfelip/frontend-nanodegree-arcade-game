@@ -14,12 +14,12 @@ Este é o projeto **Fliperama Clássico** do Nanodegree [Desenvolvedor Web Front
 
 ## O jogo
 ### Como funciona
-O objetivo do jogo atravessar o caminho de pedra e chega na parte ilustrada como água para que você ganhe um ponto. Ao tentar atravessar você não pode deixar que qualquer inseto encoste no personagem controlado por você. Os comandos são simples: setas para cima, baixo, esquerda e direita para mover o personagem.
+O objetivo do jogo atravessar o caminho de pedra e chegar na parte ilustrada como água para que você ganhe um ponto. Ao tentar atravessar você não pode deixar que qualquer inseto encoste no personagem controlado por você. Os comandos são simples: setas para cima, baixo, esquerda e direita para mover o personagem.
 
 ### Pontuação
 Para cada vez que você conseguir alcançar a água, você ganhará 1 ponto, mas os insetos (inimigos) poderão ficar 15% mais rápido em relação a velocidade máxima anterior. Ou seja, quanto mais pontos você conseguir, mais rápido os insetos poderão se deslocar.
 
-Caso haja uma colisão entre o personagem e qualquer inseto, seu personagem irá voltar a posição inicial, sua pontuação será zerada e a velocidade dos insetos restaurada ao que era no ínicio do jogo.
+Caso haja uma colisão do personagem com qualquer inseto, seu personagem irá voltar a posição inicial, sua pontuação será zerada e a velocidade dos insetos restaurada ao que era no ínicio do jogo.
 
 Bom jogo!
 
