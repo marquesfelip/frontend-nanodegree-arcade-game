@@ -1,6 +1,6 @@
 // Enemies our player must avoid
 var Enemy = function (x, y, speed) {
-    // Posições (X e Y) e velocidade 
+    // Posições (X e Y) e velocidade
     this.x = x;
     this.y = y;
     this.speed = speed;
@@ -26,7 +26,7 @@ Enemy.prototype.update = function (dt) {
     }
 
     /* Caso haja colisão entre o Player e o inimigo, o Player irá
-     ** voltar para sua posição inicial, a pontuação retornará à 0 e 
+     ** voltar para sua posição inicial, a pontuação retornará à 0 e
      ** a velocidade dos inimigos será igual ao início do game.
      */
     if (player.x < this.x + 65 && player.x + 40 > this.x &&
@@ -93,15 +93,21 @@ Player.prototype.render = function () {
  * @param  {string} command
  */
 Player.prototype.handleInput = function (command) {
-    console.log(typeof(command));
-    if (command == 'left') {
-        this.x -= 100;
-    } else if (command == 'right') {
-        this.x += 100;
-    } else if (command == 'up') {
-        this.y -= 80;
-    } else if (command == 'down') {
-        this.y += 80;
+    switch (command) {
+        case 'left':
+            this.x -= 100;
+            break;
+        case 'right':
+            this.x += 100;
+            break;
+        case 'up':
+            this.y -= 80;
+            break;
+        case 'down':
+            this.y += 80;
+            break;
+        default:
+            break;
     }
 };
 
@@ -112,9 +118,9 @@ var enemy;
 var allEnemies = [];
 var enemiesPosition = [58, 142, 225];
 var player = new Player(200, 375);
- 
-let speedIncrement = 50;
-let score = 0;
+
+var speedIncrement = 50;
+var score = 0;
 
 // Será executado um loop onde enemy receberá uma nova instância de Enemy
 // com as informações de posições X e Y (do array enemiesPosition) e a
