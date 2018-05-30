@@ -24,19 +24,6 @@ Enemy.prototype.update = function (dt) {
         this.x = -105;
         this.speed = 100 + Math.random() * speedIncrement;
     }
-
-    /* Caso haja colisão entre o Player e o inimigo, o Player irá
-     ** voltar para sua posição inicial, a pontuação retornará à 0 e
-     ** a velocidade dos inimigos será igual ao início do game.
-     */
-    if (player.x < this.x + 65 && player.x + 40 > this.x &&
-        player.y < this.y + 30 && player.y + 30 > this.y) {
-        player.x = 200;
-        player.y = 375;
-        score = 0;
-        document.getElementById('pontuacao').innerHTML = 'Pontuação: 0';
-        speedIncrement = 50;
-    }
 };
 
 // Draw the enemy on the screen, required method for game
@@ -50,7 +37,7 @@ Enemy.prototype.render = function () {
 var Player = function (x, y) {
     this.x = x;
     this.y = y;
-
+    this.score = 0;
     // Sprite do Player
     this.sprite = 'images/char-boy.png';
 };
@@ -77,9 +64,9 @@ Player.prototype.update = function () {
     if (this.y === -25) {
         this.x = 200;
         this.y = 375;
-        score += 1;
-        speedIncrement = speedIncrement + (speedIncrement * 0.15);
-        document.getElementById('pontuacao').innerHTML = `Pontuação: ${score}`;
+        this.score += 1;
+        speedIncrement += speedIncrement * 0.15;
+        document.getElementById('pontuacao').innerHTML = `Pontuação: ${this.score}`;
     }
 };
 
@@ -120,7 +107,6 @@ var enemiesPosition = [58, 142, 225];
 var player = new Player(200, 375);
 
 var speedIncrement = 50;
-var score = 0;
 
 // Será executado um loop onde enemy receberá uma nova instância de Enemy
 // com as informações de posições X e Y (do array enemiesPosition) e a

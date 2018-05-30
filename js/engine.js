@@ -9,7 +9,7 @@
  * drawn but that is not the case. What's really happening is the entire "scene"
  * is being drawn over and over, presenting the illusion of animation.
  *
- * This engine makes the canvas' context (ctx) object globally available to make 
+ * This engine makes the canvas' context (ctx) object globally available to make
  * writing app.js a little simpler to work with.
  */
 
@@ -44,7 +44,7 @@ var Engine = (function(global) {
         /* Call our update/render functions, pass along the time delta to
          * our update function since it may be used for smooth animation.
          */
-        update(dt);
+        update(dt, player);
         render();
 
         /* Set our lastTime variable which is used to determine the time delta
@@ -77,9 +77,9 @@ var Engine = (function(global) {
      * functionality this way (you could just implement collision detection
      * on the entities themselves within your app.js file).
      */
-    function update(dt) {
+
+    function update(dt, player) {
         updateEntities(dt);
-        // checkCollisions();
     }
 
     /* This is called by the update function and loops through all of the
@@ -91,9 +91,27 @@ var Engine = (function(global) {
      */
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
-            enemy.update(dt);
+            enemy.update(dt, player);
+            checkCollisions(player, enemy);
         });
         player.update();
+    }
+
+    /*
+    * Caso haja colisão entre o Player e o inimigo, o Player irá
+    * voltar para sua posição inicial, a pontuação retornará à 0 e
+    * a velocidade dos inimigos será igual ao início do game.
+    */
+    function checkCollisions(player, enemy) {
+        if (player.x < enemy.x + 65 && player.x + 35 > enemy.x &&
+        player.y < enemy.y + 30 && player.y + 30 > enemy.y) {
+            player.x = 200;
+            player.y = 375;
+            player.score = 0;
+            document.getElementById('pontuacao').innerHTML = 'Pontuação: 0';
+            speedIncrement = 50;
+
+        }
     }
 
     /* This function initially draws the "game level", it will then call
@@ -117,7 +135,7 @@ var Engine = (function(global) {
             numRows = 6,
             numCols = 5,
             row, col;
-        
+
         // Before drawing, clear existing canvas
         ctx.clearRect(0,0,canvas.width,canvas.height)
 
