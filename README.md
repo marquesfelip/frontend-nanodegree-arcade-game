@@ -14,7 +14,7 @@ Este é o projeto **Fliperama Clássico** do Nanodegree [Desenvolvedor Web Front
 
 ## O jogo
 ### Como funciona
-Para executar o jogo é só abrir o arquivo _index.html_ em qualquer navegador (de preferência atualizado). Se todos os arquivos do projeto estiverem em suas respectivas pastas junto ao _index.html_ o jogo iniciará com sucesso.
+Para executar o jogo é só abrir o arquivo **index.html** em qualquer navegador (de preferência atualizado). Se todos os arquivos do projeto estiverem em suas respectivas pastas junto ao **index.html** o jogo iniciará com sucesso.
 O objetivo do jogo atravessar o caminho de pedra e chegar na parte ilustrada como água para que você ganhe um ponto. Ao tentar atravessar você não pode deixar que qualquer inseto encoste no personagem controlado por você. Os comandos são simples: setas para cima, baixo, esquerda e direita para mover o personagem.
 
 ### Pontuação
@@ -25,7 +25,8 @@ Caso haja uma colisão do personagem com qualquer inseto, seu personagem irá vo
 Bom jogo!
 
 ## Desenvolvimento
-Parte do projeto é fornecido pela Udacity onde este veio de um fork. O mesmo já vem com as imagens, HTML e CSS. Do JavaScript já são fornecidos os códigos em _engine.js_ e _resources.js_ e um ponta pé inicial em _app.js_.
+Parte do projeto é fornecido pela Udacity onde este veio de um fork. O mesmo já vem com as imagens, HTML e CSS. Do JavaScript já são fornecidos os códigos em **engine.js** e _
+**resources.js** e um ponta pé inicial em **app.js**.
 
 ## License
 
